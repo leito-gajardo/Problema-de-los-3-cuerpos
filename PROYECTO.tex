@@ -1,0 +1,71 @@
+% Formato de proyectos tipo FONDECyT.
+% Documento adaptado de https://github.com/lfiguero/FondecyTeX por Roberto Navarro <roberto.navarro@udec.cl> 
+
+% Este documento es modular, es decir, esta separado en varios
+% archivos para facilitar su uso. Ver uso del paquete `subfiles`.
+% https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects
+
+\documentclass{article}
+\usepackage[table]{xcolor}
+\usepackage[paper=letterpaper,left=1.2cm,right=1.2cm,top=1cm,bottom=1cm,includefoot]{geometry}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{hhline}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{pgfgantt}
+\usepackage{graphicx}   \graphicspath{{img/}}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{subfiles} % permite que el documento sea modular
+
+%%% Comente/Descomente las siguientes lineas para cambiar la fuente del texto
+\usepackage{DejaVuSans}
+\renewcommand*\familydefault{\sfdefault}
+% \usepackage{sansmath}
+% \sansmath
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\textcolor[RGB]{127,127,127}{Proyecto de programación 2021}}
+
+\definecolor{tcc}{RGB}{217,217,217} % Table cell color
+
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\setlength{\arrayrulewidth}{0.5pt}
+\renewcommand{\arraystretch}{2}
+
+\renewcommand{\thesection}{\alph{section})}
+\renewcommand{\thesubsection}{\alph{section}.\arabic{subsection}}
+
+\renewcommand{\refname}{\vspace{-2ex}}
+
+\begin{document}
+
+\noindent
+\begin{tabularx}{\textwidth}{|>{\columncolor{tcc}}m{5.7cm}|X|} \hline
+  \textbf{Integrantes:} & \textbf{Nombres separados por coma}
+  \\ \hline
+  \textbf{Título del proyecto:} & \textbf{Ingrese un título representativo del producto final esperado}
+  \\ \hline
+  \textbf{Asignatura:} & \textbf{Física Computacional II (510240)} \newline Departamento de Física \newline Facultad de Ciencias Físicas y Matemáticas \newline Universidad de Concepción
+  \\ \hline
+\end{tabularx}
+
+%%% Aqui se incluyen los archivos externos
+\bigskip \subfile{resumen}
+\newpage \subfile{propuesta}
+\newpage
+\include{bib}
+\newpage
+\include{justification}
+\newpage
+\include{resources}
+
+\end{document}
